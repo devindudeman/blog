@@ -6,7 +6,10 @@
   <body>
     <div class="site-shell">
       <header class="site-header">
-        <a class="brand" href="{{ "/" | relative_url }}">Devin Fitzsky</a>
+        <a class="brand" href="{{ "/" | relative_url }}">
+          <span>Devin Bernosky</span>
+          <span class="brand-note">Fitzsky soon</span>
+        </a>
         <nav class="site-nav" aria-label="Main">
           <a href="{{ "/" | relative_url }}" {% if page.url == "/" %}aria-current="page"{% endif %}>Home</a>
           <a href="{{ "/blog/" | relative_url }}" {% if page.url == "/blog/" %}aria-current="page"{% endif %}>Blog</a>
@@ -20,7 +23,7 @@
       </main>
 
       <footer class="site-footer">
-        <p>© {{ "now" | date: "%Y" }} Devin Fitzsky.</p>
+        <p>© {{ "now" | date: "%Y" }} Devin Bernosky.</p>
       </footer>
     </div>
   </body>
