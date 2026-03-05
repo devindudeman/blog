@@ -1,12 +1,10 @@
 {% assign post = include.post %}
-<article class="post-card">
-  <a class="post-card-media" href="{{ post.url | relative_url }}">
-    {% if post.cover_image %}
+<article class="post-card{% unless post.cover_image %} text-only{% endunless %}">
+  {% if post.cover_image %}
+    <a class="post-card-media" href="{{ post.url | relative_url }}">
       <img src="{{ post.cover_image | relative_url }}" alt="" loading="lazy">
-    {% else %}
-      <div class="media-fallback">{{ post.title | slice: 0 }}</div>
-    {% endif %}
-  </a>
+    </a>
+  {% endif %}
   <div class="post-card-body">
     <p class="post-meta">{{ post.date | date: "%b %-d, %Y" }} · {{ post.author | default: site.author }}</p>
     <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>

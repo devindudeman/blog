@@ -202,13 +202,8 @@ main {
   filter: saturate(0.88) contrast(1.02);
 }
 
-.media-fallback {
-  height: 100%;
-  display: grid;
-  place-items: center;
-  color: var(--muted);
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 2rem;
+.post-card.text-only .post-card-body {
+  padding-top: 1rem;
 }
 
 .post-card-body {

@@ -1,7 +1,6 @@
 ---
 title: Setting Up This Blog
 description: How I put devin.fitzsky.com together with Jekyll, GitHub Pages, Cloudflare, and a reproducible dev setup.
-cover_image: /assets/images/designing-calm-ui.svg
 ---
 
 Been meaning to set one of these up for a while. I have always liked GitHub Pages, so I went with that. I had never used Jekyll before, but it felt like the right path for a personal site where the main job is writing and publishing cleanly.
