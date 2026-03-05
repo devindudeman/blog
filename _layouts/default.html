@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% include head.html %}
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="brand" href="{{ "/" | relative_url }}">Devin Fitzsky</a>
+        <nav class="site-nav" aria-label="Main">
+          <a href="{{ "/" | relative_url }}" {% if page.url == "/" %}aria-current="page"{% endif %}>Home</a>
+          <a href="{{ "/blog/" | relative_url }}" {% if page.url == "/blog/" %}aria-current="page"{% endif %}>Blog</a>
+          <a href="{{ "/about/" | relative_url }}" {% if page.url == "/about/" %}aria-current="page"{% endif %}>About</a>
+          <a href="{{ "/contact/" | relative_url }}" {% if page.url == "/contact/" %}aria-current="page"{% endif %}>Contact</a>
+        </nav>
+      </header>
+
+      <main>
+        {{ content }}
+      </main>
+
+      <footer class="site-footer">
+        <p>© {{ "now" | date: "%Y" }} Devin Fitzsky. Built with Jekyll and GitHub Pages.</p>
+      </footer>
+    </div>
+  </body>
+</html>

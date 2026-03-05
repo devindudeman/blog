@@ -1,0 +1,15 @@
+---
+layout: default
+---
+
+<section class="page-intro">
+  <p class="eyebrow">All Writing</p>
+  <h1>{{ page.title }}</h1>
+  <p>Articles, notes, and practical breakdowns from active engineering work.</p>
+</section>
+
+<section class="post-grid">
+  {% for post in site.posts %}
+    {% include post-card.html post=post %}
+  {% endfor %}
+</section>

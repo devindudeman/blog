@@ -1,0 +1,26 @@
+title: Devin Fitzsky
+description: Notes on building, design, and thoughtful software.
+author: Devin
+timezone: America/Los_Angeles
+url: "https://devin.fitzsky.com"
+baseurl: ""
+permalink: /:title/
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
+      author: Devin
+  - scope:
+      path: ""
+    values:
+      layout: page
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
