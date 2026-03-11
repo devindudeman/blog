@@ -4,14 +4,8 @@ permalink: /about/
 layout: page
 ---
 
-I build software and write about the parts that matter: architecture decisions, product tradeoffs, and the craft of shipping clean systems.
+I'm Devin. I build infrastructure, break things, and write about it.
 
-Today I publish as Devin Bernosky, with Fitzsky on deck.
+Right now I'm deep in NixOS, self-hosted everything, AI agents, and whatever else catches my attention. I like declarative systems, homelab experiments, and figuring out how things work by taking them apart.
 
-This site is a place for:
-
-- engineering notes from active projects
-- design experiments and UI direction studies
-- personal reflections on process and learning
-
-If something here resonates, reach out and say hi.
+This blog is where I document the builds — what worked, what didn't, and the stuff I wish someone had written down before I had to learn it the hard way.
