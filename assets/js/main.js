@@ -1,5 +1,22 @@
-// Back to top button
 document.addEventListener('DOMContentLoaded', () => {
+  // Theme toggle
+  const toggle = document.getElementById('theme-toggle');
+  const update = () => {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    toggle.textContent = isDark ? '☀️' : '🌙';
+  };
+
+  toggle.addEventListener('click', () => {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const next = isDark ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    update();
+  });
+
+  update();
+
+  // Back to top button
   const topBtn = document.createElement('a');
   topBtn.href = '#';
   topBtn.className = 'back-to-top';

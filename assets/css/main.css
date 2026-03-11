@@ -640,120 +640,124 @@ a.post-nav-link:hover .post-nav-title {
 }
 
 /* Dark mode */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0e1117;
-    --surface: #161b22;
-    --ink: #e6edf3;
-    --muted: #8b949e;
-    --line: #30363d;
-    --accent: #e6edf3;
-    --accent-soft: #1c2128;
-  }
+[data-theme="dark"] {
+  --bg: #0e1117;
+  --surface: #161b22;
+  --ink: #e6edf3;
+  --muted: #8b949e;
+  --line: #30363d;
+  --accent: #e6edf3;
+  --accent-soft: #1c2128;
+}
 
-  body {
-    background: linear-gradient(180deg, #111318 0%, var(--bg) 100%);
-  }
+[data-theme="dark"] body {
+  background: linear-gradient(180deg, #111318 0%, var(--bg) 100%);
+}
 
-  .hero {
-    background: #12161e;
-    border-color: var(--line);
-    border-left-color: var(--accent);
-  }
+[data-theme="dark"] .hero {
+  background: #12161e;
+  border-color: var(--line);
+  border-left-color: var(--accent);
+}
 
-  .page-intro,
-  .content-page,
-  .post {
-    background: #12161e;
-    border-color: var(--line);
-  }
+[data-theme="dark"] .page-intro,
+[data-theme="dark"] .content-page,
+[data-theme="dark"] .post {
+  background: #12161e;
+  border-color: var(--line);
+}
 
-  .error-page {
-    background: #12161e;
-    border-color: var(--line);
-  }
+[data-theme="dark"] .error-page {
+  background: #12161e;
+  border-color: var(--line);
+}
 
-  .post-content p,
-  .post-content li {
-    color: #c9d1d9;
-  }
+[data-theme="dark"] .post-content p,
+[data-theme="dark"] .post-content li {
+  color: #c9d1d9;
+}
 
-  .post-content blockquote {
-    color: var(--muted);
-    border-left-color: var(--muted);
-  }
+[data-theme="dark"] .post-content blockquote {
+  color: var(--muted);
+  border-left-color: var(--muted);
+}
 
-  /* Inline code in dark mode */
-  .post-content code {
-    background: #1c2128;
-    border-color: var(--line);
-    color: #e6edf3;
-  }
+[data-theme="dark"] .post-content code {
+  background: #1c2128;
+  border-color: var(--line);
+  color: #e6edf3;
+}
 
-  /* Code blocks already dark — just tweak border */
-  .post-content pre {
-    border-color: var(--line);
-  }
+[data-theme="dark"] .post-content pre {
+  border-color: var(--line);
+}
 
-  /* TOC */
-  .post-toc {
-    background: #12161e;
-    border-color: var(--line);
-  }
+[data-theme="dark"] .post-toc {
+  background: #12161e;
+  border-color: var(--line);
+}
 
-  .post-toc a {
-    color: var(--ink);
-  }
+[data-theme="dark"] .post-toc a {
+  color: var(--ink);
+}
 
-  /* Cards */
-  .post-card {
-    background: var(--surface);
-    border-color: var(--line);
-  }
+[data-theme="dark"] .post-card {
+  background: var(--surface);
+  border-color: var(--line);
+}
 
-  .post-card:hover {
-    border-color: #484f58;
-  }
+[data-theme="dark"] .post-card:hover {
+  border-color: #484f58;
+}
 
-  .post-card-media {
-    background: linear-gradient(120deg, #1c2128 0%, #21262d 100%);
-  }
+[data-theme="dark"] .post-card-media {
+  background: linear-gradient(120deg, #1c2128 0%, #21262d 100%);
+}
 
-  /* Hero CTA */
-  .hero-cta {
-    background: var(--ink);
-    border-color: var(--ink);
-    color: #0e1117;
-  }
+[data-theme="dark"] .hero-cta {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #0e1117;
+}
 
-  /* Back to top */
-  .back-to-top {
-    background: var(--surface);
-    border-color: var(--line);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  }
+[data-theme="dark"] .back-to-top {
+  background: var(--surface);
+  border-color: var(--line);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
 
-  /* Links in post content */
-  .post-content a {
-    color: var(--ink);
-  }
+[data-theme="dark"] .post-content a {
+  color: var(--ink);
+}
 
-  /* Post header lede */
-  .post-header .lede {
-    color: var(--muted);
-  }
+[data-theme="dark"] .post-header .lede {
+  color: var(--muted);
+}
 
-  /* Post description in cards */
-  .post-card p {
-    color: var(--muted);
-  }
+[data-theme="dark"] .post-card p {
+  color: var(--muted);
+}
 
-  /* Content body pages */
-  .content-body {
-    color: var(--muted);
-  }
+[data-theme="dark"] .content-body {
+  color: var(--muted);
+}
 
-  .page-intro p {
-    color: var(--muted);
-  }
+[data-theme="dark"] .page-intro p {
+  color: var(--muted);
+}
+
+/* Theme toggle */
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.15rem;
+  padding: 0.2rem;
+  color: var(--muted);
+  transition: color 150ms ease;
+  line-height: 1;
+}
+
+.theme-toggle:hover {
+  color: var(--ink);
 }
