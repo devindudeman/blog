@@ -451,7 +451,7 @@ main {
 /* Table of contents */
 .post-toc {
   max-width: 760px;
-  margin: 0 auto 1.5rem;
+  margin: 1rem auto 1.5rem;
   padding: 1rem 1.25rem;
   border: 1px solid var(--line);
   border-radius: var(--radius);

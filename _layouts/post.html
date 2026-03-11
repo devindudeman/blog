@@ -23,13 +23,13 @@ layout: default
   <nav class="post-toc" aria-label="Table of contents">
     <p class="toc-label">Contents</p>
     <ul>
-    {% assign headings = content | split: '<h2' %}
+    {% assign headings = content | split: '<h2 id="' %}
     {% for heading in headings %}
-      {% if heading contains 'id="' %}
-        {% assign id = heading | split: 'id="' | last | split: '"' | first %}
-        {% assign text = heading | split: '>' | slice: 1 | join: '>' | split: '</h2>' | first %}
+      {% unless forloop.first %}
+        {% assign id = heading | split: '"' | first %}
+        {% assign text = heading | split: '">' | last | split: '</h2>' | first %}
         <li><a href="#{{ id }}">{{ text | strip_html }}</a></li>
-      {% endif %}
+      {% endunless %}
     {% endfor %}
     </ul>
   </nav>
