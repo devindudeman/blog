@@ -328,12 +328,104 @@ main {
   color: #3f4652;
 }
 
+/* Inline code */
 .post-content code {
-  padding: 0.1rem 0.35rem;
+  padding: 0.15rem 0.4rem;
   border: 1px solid #d2d8e1;
+  border-radius: 3px;
   background: #f3f6fa;
   font-family: "IBM Plex Mono", monospace;
-  font-size: 0.9em;
+  font-size: 0.88em;
+}
+
+/* Fenced code blocks */
+.post-content pre {
+  margin: 1.25rem 0;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid #d2d8e1;
+  border-radius: var(--radius);
+  background: #1a1e2a;
+  color: #d4dae6;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  line-height: 1.55;
+}
+
+.post-content pre code {
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: none;
+  color: inherit;
+  font-size: 0.85em;
+  line-height: inherit;
+}
+
+/* Rouge syntax highlighting (dark theme) */
+.highlight { background: #1a1e2a; }
+.highlight .c,
+.highlight .cm,
+.highlight .c1,
+.highlight .cs   { color: #636d83; font-style: italic; } /* comments */
+.highlight .k,
+.highlight .kd,
+.highlight .kn,
+.highlight .kp,
+.highlight .kr,
+.highlight .kt   { color: #c678dd; }                     /* keywords */
+.highlight .s,
+.highlight .s1,
+.highlight .s2,
+.highlight .sb,
+.highlight .sc,
+.highlight .sh,
+.highlight .sx   { color: #98c379; }                      /* strings */
+.highlight .na   { color: #e5c07b; }                      /* attribute names */
+.highlight .nb,
+.highlight .bp   { color: #61afef; }                      /* builtins */
+.highlight .nf,
+.highlight .nx   { color: #61afef; }                      /* functions */
+.highlight .nn   { color: #e5c07b; }                      /* namespace */
+.highlight .no   { color: #d19a66; }                      /* constants */
+.highlight .ni   { color: #d4dae6; }                      /* entities */
+.highlight .ne   { color: #e06c75; }                      /* exceptions */
+.highlight .nv,
+.highlight .vi,
+.highlight .vc,
+.highlight .vg,
+.highlight .vm   { color: #e06c75; }                      /* variables */
+.highlight .o,
+.highlight .ow   { color: #56b6c2; }                      /* operators */
+.highlight .m,
+.highlight .mi,
+.highlight .mf,
+.highlight .mh,
+.highlight .mo   { color: #d19a66; }                      /* numbers */
+.highlight .p    { color: #abb2bf; }                       /* punctuation */
+.highlight .gd   { color: #e06c75; }                       /* diff deleted */
+.highlight .gi   { color: #98c379; }                       /* diff inserted */
+
+/* Copy-friendly: select all text in code block on triple-click */
+.post-content pre {
+  user-select: all;
+  -webkit-user-select: all;
+}
+
+.post-content pre code {
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+/* Highlight wrapper from Rouge */
+.post-content div.highlight {
+  margin: 1.25rem 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.post-content div.highlight pre {
+  margin: 0;
+  border-radius: 0;
 }
 
 .more-posts {
