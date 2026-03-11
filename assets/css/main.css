@@ -405,45 +405,39 @@ main {
 .highlight .gd   { color: #e06c75; }                       /* diff deleted */
 .highlight .gi   { color: #98c379; }                       /* diff inserted */
 
-/* Code block wrapper (added by JS) */
-.code-block {
-  position: relative;
-  margin: 1.25rem 0;
-}
-
-.code-block pre {
-  margin: 0;
-}
-
+/* Copy button */
 .copy-btn {
   position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  padding: 0.25rem 0.6rem;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  top: 0.6rem;
+  right: 0.6rem;
+  padding: 0.3rem 0.65rem;
+  border: none;
   border-radius: 4px;
-  background: rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.4);
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.7rem;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   cursor: pointer;
   opacity: 0;
   transition: opacity 150ms ease, background 150ms ease, color 150ms ease;
+  z-index: 2;
 }
 
-.code-block:hover .copy-btn {
+.highlight:hover .copy-btn,
+pre:hover .copy-btn {
   opacity: 1;
 }
 
 .copy-btn:hover {
-  background: rgba(255, 255, 255, 0.15);
-  color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .copy-btn.copied {
   color: #98c379;
-  border-color: rgba(152, 195, 121, 0.3);
+  background: rgba(152, 195, 121, 0.12);
 }
 
 /* Back to top */

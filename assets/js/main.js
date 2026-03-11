@@ -1,18 +1,23 @@
 // Code block copy button
 document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.post-content pre').forEach(pre => {
+  document.querySelectorAll('.post-content .highlight, .post-content pre').forEach(el => {
+    // Avoid duplicates: if this pre is inside a .highlight we already processed, skip
+    if (el.tagName === 'PRE' && el.closest('.highlight')) return;
+
+    const container = el;
+    container.style.position = 'relative';
+
     const btn = document.createElement('button');
     btn.className = 'copy-btn';
     btn.textContent = 'Copy';
     btn.setAttribute('aria-label', 'Copy code to clipboard');
 
     btn.addEventListener('click', async () => {
-      const code = pre.querySelector('code')
-        ? pre.querySelector('code').textContent
-        : pre.textContent;
+      const code = container.querySelector('code');
+      const text = code ? code.textContent : container.textContent;
 
       try {
-        await navigator.clipboard.writeText(code);
+        await navigator.clipboard.writeText(text.trim());
         btn.textContent = 'Copied!';
         btn.classList.add('copied');
         setTimeout(() => {
@@ -25,12 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Wrap pre in a container for positioning
-    const wrapper = document.createElement('div');
-    wrapper.className = 'code-block';
-    pre.parentNode.insertBefore(wrapper, pre);
-    wrapper.appendChild(pre);
-    wrapper.appendChild(btn);
+    container.appendChild(btn);
   });
 
   // Back to top button
@@ -42,7 +42,11 @@ document.addEventListener('DOMContentLoaded', () => {
   document.body.appendChild(topBtn);
 
   const toggleTopBtn = () => {
-    topBtn.classList.toggle('visible', window.scrollY > 600);
+    if (window.scrollY > 400) {
+      topBtn.classList.add('visible');
+    } else {
+      topBtn.classList.remove('visible');
+    }
   };
 
   window.addEventListener('scroll', toggleTopBtn, { passive: true });
