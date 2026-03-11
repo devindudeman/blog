@@ -405,49 +405,6 @@ main {
 .highlight .gd   { color: #e06c75; }                       /* diff deleted */
 .highlight .gi   { color: #98c379; }                       /* diff inserted */
 
-/* Code block wrapper + copy button */
-.code-wrapper {
-  position: relative;
-  margin: 1.25rem 0;
-}
-
-.code-wrapper pre {
-  margin: 0;
-}
-
-.copy-btn {
-  position: absolute;
-  top: 0.6rem;
-  right: 0.6rem;
-  padding: 0.3rem 0.65rem;
-  border: none;
-  border-radius: 4px;
-  background: rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.4);
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 0.7rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  cursor: pointer;
-  opacity: 0;
-  transition: opacity 150ms ease, background 150ms ease, color 150ms ease;
-  z-index: 2;
-}
-
-.code-wrapper:hover .copy-btn {
-  opacity: 1;
-}
-
-.copy-btn:hover {
-  background: rgba(255, 255, 255, 0.18);
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.copy-btn.copied {
-  color: #98c379;
-  background: rgba(152, 195, 121, 0.12);
-}
-
 /* Back to top */
 .back-to-top {
   position: fixed;

@@ -1,39 +1,5 @@
-// Code block copy button
+// Back to top button
 document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.post-content pre.highlight, .post-content > pre').forEach(pre => {
-    // Create a wrapper div for positioning
-    const wrapper = document.createElement('div');
-    wrapper.className = 'code-wrapper';
-    pre.parentNode.insertBefore(wrapper, pre);
-    wrapper.appendChild(pre);
-
-    const btn = document.createElement('button');
-    btn.className = 'copy-btn';
-    btn.textContent = 'Copy';
-    btn.setAttribute('aria-label', 'Copy code to clipboard');
-
-    btn.addEventListener('click', async () => {
-      const code = pre.querySelector('code');
-      const text = code ? code.textContent : pre.textContent;
-
-      try {
-        await navigator.clipboard.writeText(text.trim());
-        btn.textContent = 'Copied!';
-        btn.classList.add('copied');
-        setTimeout(() => {
-          btn.textContent = 'Copy';
-          btn.classList.remove('copied');
-        }, 1500);
-      } catch {
-        btn.textContent = 'Error';
-        setTimeout(() => { btn.textContent = 'Copy'; }, 1500);
-      }
-    });
-
-    wrapper.appendChild(btn);
-  });
-
-  // Back to top button
   const topBtn = document.createElement('a');
   topBtn.href = '#';
   topBtn.className = 'back-to-top';
