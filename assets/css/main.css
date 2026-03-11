@@ -756,6 +756,8 @@ a.post-nav-link:hover .post-nav-title {
   color: var(--muted);
   transition: color 150ms ease;
   line-height: 1;
+  position: relative;
+  top: 2px;
 }
 
 .theme-toggle:hover {
