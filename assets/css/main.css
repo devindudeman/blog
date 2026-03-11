@@ -476,9 +476,10 @@ pre:hover .copy-btn {
 
 /* Highlight wrapper from Rouge */
 .post-content div.highlight {
+  position: relative;
   margin: 1.25rem 0;
   border-radius: var(--radius);
-  overflow: hidden;
+  overflow: visible;
 }
 
 .post-content div.highlight pre {

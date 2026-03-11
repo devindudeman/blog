@@ -1,11 +1,12 @@
 // Code block copy button
 document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.post-content .highlight, .post-content pre').forEach(el => {
+  document.querySelectorAll('.post-content .highlight, .post-content > pre').forEach(el => {
     // Avoid duplicates: if this pre is inside a .highlight we already processed, skip
     if (el.tagName === 'PRE' && el.closest('.highlight')) return;
 
     const container = el;
     container.style.position = 'relative';
+    container.style.overflow = 'visible';
 
     const btn = document.createElement('button');
     btn.className = 'copy-btn';
