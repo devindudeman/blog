@@ -1,7 +1,10 @@
 title: Devin Bernosky
-description: Notes on building, design, and thoughtful software.
+description: "Move fast and break things. As declaratively and atomically as possible."
 author: Devin
 timezone: America/Los_Angeles
+twitter:
+  username: devindudeman
+  card: summary_large_image
 url: "https://devin.fitzsky.com"
 baseurl: ""
 permalink: /:title/
@@ -17,10 +20,12 @@ defaults:
     values:
       layout: post
       author: Devin
+      image: /assets/images/og-default.png
   - scope:
       path: ""
     values:
       layout: page
+      image: /assets/images/og-default.png
 exclude:
   - README.md
   - Gemfile
