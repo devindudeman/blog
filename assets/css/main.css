@@ -67,6 +67,7 @@ img {
 .site-nav {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 0.35rem 0.85rem;
 }
 
@@ -751,13 +752,16 @@ a.post-nav-link:hover .post-nav-title {
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 1.15rem;
   padding: 0.2rem;
   color: var(--muted);
   transition: color 150ms ease;
+  display: inline-flex;
+  align-items: center;
   line-height: 1;
-  position: relative;
-  top: 15px;
+}
+
+.theme-toggle svg {
+  display: block;
 }
 
 .theme-toggle:hover {
