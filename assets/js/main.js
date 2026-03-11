@@ -1,12 +1,11 @@
 // Code block copy button
 document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.post-content .highlight, .post-content > pre').forEach(el => {
-    // Avoid duplicates: if this pre is inside a .highlight we already processed, skip
-    if (el.tagName === 'PRE' && el.closest('.highlight')) return;
-
-    const container = el;
-    container.style.position = 'relative';
-    container.style.overflow = 'visible';
+  document.querySelectorAll('.post-content pre.highlight, .post-content > pre').forEach(pre => {
+    // Create a wrapper div for positioning
+    const wrapper = document.createElement('div');
+    wrapper.className = 'code-wrapper';
+    pre.parentNode.insertBefore(wrapper, pre);
+    wrapper.appendChild(pre);
 
     const btn = document.createElement('button');
     btn.className = 'copy-btn';
@@ -14,8 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.setAttribute('aria-label', 'Copy code to clipboard');
 
     btn.addEventListener('click', async () => {
-      const code = container.querySelector('code');
-      const text = code ? code.textContent : container.textContent;
+      const code = pre.querySelector('code');
+      const text = code ? code.textContent : pre.textContent;
 
       try {
         await navigator.clipboard.writeText(text.trim());
@@ -31,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    container.appendChild(btn);
+    wrapper.appendChild(btn);
   });
 
   // Back to top button
@@ -42,16 +41,13 @@ document.addEventListener('DOMContentLoaded', () => {
   topBtn.textContent = '↑';
   document.body.appendChild(topBtn);
 
-  const toggleTopBtn = () => {
+  window.addEventListener('scroll', () => {
     if (window.scrollY > 400) {
       topBtn.classList.add('visible');
     } else {
       topBtn.classList.remove('visible');
     }
-  };
-
-  window.addEventListener('scroll', toggleTopBtn, { passive: true });
-  toggleTopBtn();
+  }, { passive: true });
 
   topBtn.addEventListener('click', (e) => {
     e.preventDefault();

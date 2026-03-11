@@ -405,7 +405,16 @@ main {
 .highlight .gd   { color: #e06c75; }                       /* diff deleted */
 .highlight .gi   { color: #98c379; }                       /* diff inserted */
 
-/* Copy button */
+/* Code block wrapper + copy button */
+.code-wrapper {
+  position: relative;
+  margin: 1.25rem 0;
+}
+
+.code-wrapper pre {
+  margin: 0;
+}
+
 .copy-btn {
   position: absolute;
   top: 0.6rem;
@@ -425,8 +434,7 @@ main {
   z-index: 2;
 }
 
-.highlight:hover .copy-btn,
-pre:hover .copy-btn {
+.code-wrapper:hover .copy-btn {
   opacity: 1;
 }
 
@@ -476,10 +484,9 @@ pre:hover .copy-btn {
 
 /* Highlight wrapper from Rouge */
 .post-content div.highlight {
-  position: relative;
   margin: 1.25rem 0;
   border-radius: var(--radius);
-  overflow: visible;
+  overflow: hidden;
 }
 
 .post-content div.highlight pre {

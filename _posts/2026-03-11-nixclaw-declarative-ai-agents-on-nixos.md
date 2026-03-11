@@ -59,7 +59,7 @@ curl -s https://mattermost.fitzsky.com/api/v4/teams \
 
 ## The VM
 
-In Proxmox, create a VM with UEFI (OVMF), q35 machine type, VirtIO SCSI, and QEMU agent enabled. I gave mine 256GB disk, 10 CPU threads, and 4GB RAM. That's probably overkill for what amounts to a gateway process, but I had the headroom.
+In Proxmox, create a VM with UEFI (OVMF), q35 machine type, VirtIO SCSI, and QEMU agent enabled. I gave mine 256GB disk, 10 CPU threads, and 8GB RAM. That's probably overkill for what amounts to a gateway process, but I had the headroom.
 
 Boot the NixOS 25.11 minimal ISO. At the boot menu, pick "Linux LTS" — that's a kernel option in the boot menu, not a separate ISO.
 
