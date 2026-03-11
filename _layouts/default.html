@@ -12,7 +12,7 @@
           <a href="{{ "/blog/" | relative_url }}" {% if page.url == "/blog/" %}aria-current="page"{% endif %}>Blog</a>
           <a href="{{ "/about/" | relative_url }}" {% if page.url == "/about/" %}aria-current="page"{% endif %}>About</a>
           <a href="{{ "/contact/" | relative_url }}" {% if page.url == "/contact/" %}aria-current="page"{% endif %}>Contact</a>
-          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">☀️</button>
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode"></button>
         </nav>
       </header>
 
@@ -24,6 +24,6 @@
         <p>© {{ "now" | date: "%Y" }} Devin Bernosky.</p>
       </footer>
     </div>
-    <script src="{{ "/assets/js/main.js" | relative_url }}" defer></script>
+    <script src="{{ "/assets/js/main.js?v=2" | relative_url }}" defer></script>
   </body>
 </html>
