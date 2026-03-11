@@ -2,10 +2,14 @@
 layout: default
 ---
 
+{% assign words = content | strip_html | number_of_words %}
+{% assign minutes = words | divided_by: 230 %}
+{% if minutes < 1 %}{% assign minutes = 1 %}{% endif %}
+
 <article class="post">
   {% assign related_posts = site.posts | where_exp: "post", "post.url != page.url" %}
   <header class="post-header">
-    <p class="post-meta">{{ page.date | date: "%B %-d, %Y" }} · {{ page.author | default: site.author }}</p>
+    <p class="post-meta">{{ page.date | date: "%B %-d, %Y" }} · {{ page.author | default: site.author }} · {{ minutes }} min read</p>
     <h1>{{ page.title }}</h1>
     {% if page.description %}
       <p class="lede">{{ page.description }}</p>
@@ -15,9 +19,44 @@ layout: default
     {% endif %}
   </header>
 
+  {% if page.toc %}
+  <nav class="post-toc" aria-label="Table of contents">
+    <p class="toc-label">Contents</p>
+    <ul>
+    {% assign headings = content | split: '<h2' %}
+    {% for heading in headings %}
+      {% if heading contains 'id="' %}
+        {% assign id = heading | split: 'id="' | last | split: '"' | first %}
+        {% assign text = heading | split: '>' | slice: 1 | join: '>' | split: '</h2>' | first %}
+        <li><a href="#{{ id }}">{{ text | strip_html }}</a></li>
+      {% endif %}
+    {% endfor %}
+    </ul>
+  </nav>
+  {% endif %}
+
   <div class="post-content">
     {{ content }}
   </div>
+
+  <nav class="post-nav" aria-label="Post navigation">
+    {% if page.previous.url %}
+      <a class="post-nav-link post-nav-prev" href="{{ page.previous.url | relative_url }}">
+        <span class="post-nav-dir">← Previous</span>
+        <span class="post-nav-title">{{ page.previous.title }}</span>
+      </a>
+    {% else %}
+      <span class="post-nav-link post-nav-prev"></span>
+    {% endif %}
+    {% if page.next.url %}
+      <a class="post-nav-link post-nav-next" href="{{ page.next.url | relative_url }}">
+        <span class="post-nav-dir">Next →</span>
+        <span class="post-nav-title">{{ page.next.title }}</span>
+      </a>
+    {% else %}
+      <span class="post-nav-link post-nav-next"></span>
+    {% endif %}
+  </nav>
 
   {% if related_posts.size > 0 %}
     <section class="more-posts">

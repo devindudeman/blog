@@ -1,6 +1,7 @@
 ---
 title: "NixClaw: Declarative AI Agents on NixOS"
 description: How I built a single-purpose NixOS VM that runs AI agents with their own git-backed workspaces, deployed in one command from a MacBook to Proxmox.
+toc: true
 ---
 
 I wanted AI agents I could spin up per-project, each with its own workspace and chat channel, running on infrastructure I control. A proper declarative system where the entire machine — disk layout, services, secrets, agent bindings — lives in version-controlled Nix.
