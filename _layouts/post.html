@@ -19,11 +19,18 @@ layout: default
     {% endif %}
   </header>
 
-  {% if page.toc %}
+  {% assign headings = content | split: '</h2>' %}
+  {% assign h2_count = 0 %}
+  {% for heading in headings %}
+    {% if heading contains '<h2 id="' %}
+      {% assign h2_count = h2_count | plus: 1 %}
+    {% endif %}
+  {% endfor %}
+  {% unless page.toc == false %}
+  {% if h2_count >= 6 %}
   <nav class="post-toc" aria-label="Table of contents">
     <p class="toc-label">Contents</p>
     <ul>
-    {% assign headings = content | split: '</h2>' %}
     {% for heading in headings %}
       {% if heading contains '<h2 id="' %}
         {% assign h2_part = heading | split: '<h2 id="' | last %}
@@ -35,6 +42,7 @@ layout: default
     </ul>
   </nav>
   {% endif %}
+  {% endunless %}
 
   <div class="post-content">
     {{ content }}
