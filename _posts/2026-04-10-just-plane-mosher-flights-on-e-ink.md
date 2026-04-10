@@ -17,7 +17,7 @@ This is where the interesting problem starts.
 
 ## Two-layer rendering
 
-Floyd-Steinberg dithering does a good job of making a 7-color image look like it has a much wider palette. The watercolor map tiles come back from Stadia Maps as full RGB, and after dithering they look beautiful on the display — soft blues for the bay, warm tans for land, the kind of thing you'd actually want on a shelf.
+Floyd-Steinberg dithering does a good job of making a 7-color image look like it has a much wider palette. The watercolor map tiles come back from Stadia Maps as full RGB, and after dithering they look beautiful on the display. Soft blues for the bay, warm tans for land, the kind of thing you'd actually want on a shelf.
 
 But dithering destroys small details. Text becomes unreadable. Thin lines dissolve into noise. A callsign label like "SWA2046" rendered onto the map before dithering comes out as a smeared mess of scattered pixels. The dithering algorithm doesn't know that those pixels are supposed to be letters. It just sees color values and spreads the quantization error around.
 
@@ -54,13 +54,13 @@ Thirteen flights over San Francisco means thirteen labels, and they overlap. The
 
 ## Map tiles and caching
 
-The background map is assembled from [Stamen](http://maps.stamen.com/) tiles fetched through Stadia Maps. The tiles are 256x256 PNGs that get stitched together and cropped to fit the display's viewport. Three styles are available — Watercolor, Toner, and Terrain — and you can cycle between them with the buttons on the back of the display.
+The background map is assembled from [Stamen](http://maps.stamen.com/) tiles fetched through Stadia Maps. The tiles are 256x256 PNGs that get stitched together and cropped to fit the display's viewport. Three styles are available (Watercolor, Toner, and Terrain), and you can cycle between them with the buttons on the back of the display.
 
 Map tiles are cached to disk. Stamen's tile set is static (the watercolor paintings aren't going to change), so the cache effectively never expires. The setup script pre-fetches all the tiles needed for the configured location and zoom level, so the first boot doesn't have to wait for network requests before it can render.
 
 ## Change detection
 
-E-ink refreshes are slow. The 7-color ACeP panel takes about 40 seconds for a full refresh — you can watch the colors settle in waves across the screen. You don't want to do that if nothing has changed.
+E-ink refreshes are slow. The 7-color ACeP panel takes about 40 seconds for a full refresh. You can watch the colors settle in waves across the screen. You don't want to do that if nothing has changed.
 
 Before pushing a frame to the display, the renderer computes a SHA-256 hash of the image buffer and compares it to the last one sent. If the hash matches, it skips the refresh entirely. Late at night when air traffic drops off, the display might go an hour without updating. During the morning departure rush, it refreshes every cycle.
 
