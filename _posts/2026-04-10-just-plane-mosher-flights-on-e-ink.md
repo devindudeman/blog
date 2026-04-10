@@ -7,7 +7,7 @@ A friend of mine, Mosher, lives in San Francisco. He's into planes. I wanted to 
 
 The result is [just-plane-mosher](https://github.com/devindudeman/just-plane-mosher): a Raspberry Pi Zero 2 W connected to a Pimoroni Inky Impression 7.3" e-ink display. It pulls live aircraft positions from free ADS-B APIs, plots them on a Stamen Watercolor map centered on the Haight, and renders the whole thing to a 7-color 800x480 screen. Planes show up as little colored arrows pointing in their heading direction, labeled with callsigns and routes. An info bar along the bottom shows the flight count and last update time.
 
-The display refreshes every five minutes. Between refreshes it draws zero power from the screen. The whole thing runs headless off a micro USB cable.
+The display refreshes every five minutes. Between refreshes it draws zero power from the screen. The whole thing runs headless off a micro USB cable, tucked into a [3D-printed black frame](https://www.printables.com/model/585713-inky-impression-73-e-paper-framecase/files) that makes it look like a small picture frame.
 
 ## The display
 
